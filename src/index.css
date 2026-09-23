@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #fffdf0;
+    color: #3d2817;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #ff8400;
+    color: #fff;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #fff3c4;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #f0b429;
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #de911d;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .gradient-saffron {
+    background: linear-gradient(135deg, #ff8400 0%, #f0b429 50%, #ff8400 100%);
+  }
+
+  .gradient-text-gold {
+    background: linear-gradient(135deg, #de911d, #f0b429, #de911d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-saffron {
+    background: linear-gradient(135deg, #c75200, #ff8400, #c75200);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-gold-200/60;
+  }
+
+  .temple-border {
+    border-image: linear-gradient(90deg, transparent, #f0b429, transparent) 1;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-gradient-to-r from-saffron-600 to-saffron-500 shadow-lg shadow-saffron-500/30 hover:shadow-xl hover:shadow-saffron-500/40 hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-saffron-700 bg-gold-100 border-2 border-gold-300 hover:bg-gold-200 hover:scale-105 transition-all duration-300;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-white border-2 border-white/60 hover:bg-white/10 hover:border-white transition-all duration-300;
+  }
+
+  .devanagari {
+    font-family: 'Tiro Devanagari Hindi', serif;
+  }
+
+  .heading-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .shimmer-text {
+    background: linear-gradient(90deg, #de911d 0%, #f0b429 25%, #fff3c4 50%, #f0b429 75%, #de911d 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s linear infinite;
+  }
+
+  .decorative-line {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .decorative-line::before,
+  .decorative-line::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f0b429, transparent);
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .text-shadow-lg {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .text-shadow-md {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+  }
+
+  .bg-pattern-dots {
+    background-image: radial-gradient(circle, rgba(240, 180, 41, 0.08) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .bg-pattern-mandala {
+    background-image: radial-gradient(circle at 50% 50%, rgba(255, 132, 0, 0.03) 0%, transparent 50%),
+                      radial-gradient(circle at 0% 0%, rgba(240, 180, 41, 0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 100% 100%, rgba(199, 82, 0, 0.03) 0%, transparent 40%);
+  }
+}
